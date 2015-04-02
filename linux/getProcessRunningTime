@@ -1,0 +1,33 @@
+#!/bin/bash
+
+display_help() {
+  cat <<-EOF
+  Usage: getProcessRunningTime [process name]
+  ex. ./getProcessRunningTime chrome
+
+EOF
+  exit 0
+}
+
+if test $# -eq 0; then
+  display_help
+else
+  ps -eo pid,comm,etime | grep -i $1 | \
+  awk \
+  '{
+  split($3,t,":");
+  pid=$1;
+  runningTime=0;
+  if(t[3]!=null) {
+  if(match(t[1],"-") > 0) {
+  split(t[1],d,"-");
+  runningTime=d[1]*24*3600+d[2]*3600+t[2]*60+t[3];
+  } else {
+  runningTime=t[1]*3600+t[2]*60+t[3];
+  }
+  } else {
+  runningTime=t[1]*60+t[2];
+  }
+  printf("pid::%d,runningTime::%d seconds\n", pid, runningTime);
+  }'
+fi

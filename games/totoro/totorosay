@@ -9,10 +9,8 @@ esac
 cows=( $(cowsay -l | grep -v "Cow files in") )
 random_totoro=$(printf "%s\n" "${cows[@]}" | grep totoro | $SHUF -n 1)
 
-if readlink /proc/$$/fd/0 | grep -Eq "^pipe:|deleted"; then
-    while IFS= read -r PIPED_INPUT || break; do
-        echo ${PIPED_INPUT} | cowsay -f ${random_totoro} | lolcat; exit 0;
-    done
+if [ ! -t 0 ]; then
+    cowsay -f ${random_totoro} | lolcat; exit 0;
 fi
 
 if [ $# -lt 1 ]; then

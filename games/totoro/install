@@ -1,8 +1,7 @@
 #!/bin/bash
 
 install_colorsay() {
-    curl -sSL 
-https://raw.githubusercontent.com/goodjob1114/some-scripts/master/games/totoro/install-colorsay | bash
+    curl -sSL https://raw.githubusercontent.com/goodjob1114/some-scripts/master/games/totoro/install-colorsay | bash
 }
 
 install_totoro_cows() {

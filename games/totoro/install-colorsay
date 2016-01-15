@@ -1,0 +1,23 @@
+#!/bin/bash
+
+gem -v > /dev/null; [ $? -ne 0 ] && echo "Need install ruby" && exit 8;
+brew -h > /dev/null; [ $? -ne 0 ] && echo "Need install homebrew via http://brew.sh/" && exit 9;
+
+lolcat -v > /dev/null; [ $? -ne 0 ] && gem install lolcat
+
+case ${OSTYPE} in
+    linux-gnu) 
+        if [ $(lsb_release -si) == "Ubuntu" ]; then
+            PKG="sudo apt-get install"
+        else
+            echo "Not Ubuntu...sorry"; exit 10;
+        fi
+        ;;
+    darwin*) PKG="brew install";;
+    *) echo Unknown; exit 1;;
+esac
+
+fortune > /dev/null; [ $? -ne 0 ] && ${PKG} fortune
+cowsay -l > /dev/null; [ $? -ne 0 ] && ${PKG} cowsay
+
+exit 0

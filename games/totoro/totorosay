@@ -1,0 +1,24 @@
+#!/bin/bash
+
+case ${OSTYPE} in
+   linux-gnu) SHUF=shuf;;
+   darwin*) SHUF=gshuf;;
+   *) echo "Your device is not supported yet."; exit 1;;
+esac
+
+cows=( $(cowsay -l | grep -v "Cow files in") )
+random_totoro=$(printf "%s\n" "${cows[@]}" | grep totoro | $SHUF -n 1)
+
+if readlink /proc/$$/fd/0 | grep -Eq "^pipe:|deleted"; then
+    while IFS= read -r PIPED_INPUT || break; do
+        echo ${PIPED_INPUT} | cowsay -f ${random_totoro} | lolcat; exit 0;
+    done
+fi
+
+if [ $# -lt 1 ]; then
+    fortune | cowsay -f ${random_totoro} | lolcat
+else
+    echo $1 | cowsay -f ${random_totoro} | lolcat
+fi
+
+exit 0

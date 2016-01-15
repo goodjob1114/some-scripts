@@ -1,0 +1,17 @@
+#!/bin/bash
+
+case ${OSTYPE} in
+   linux-gnu) COWSFOLDER=/usr/share/cowsay/cows;;
+   darwin*) COWSFOLDER=/usr/local/share/cows/;;
+   *) echo "Your device is not supported yet."; exit 1;;
+esac
+
+TOTOROS_PATH=games/totoro/cows
+types=( bus fat side umbrella test-all test test2 test3 test4 test5 test6 test7 test8 )
+
+for i in ${types[@]}; 
+do 
+    sudo wget --output-document=$COWSFOLDER/totoro-${i}.cow https://raw.githubusercontent.com/goodjob1114/some-scripts/master/${TOTOROS_PATH}/totoro-${i}.cow
+done
+
+exit 0

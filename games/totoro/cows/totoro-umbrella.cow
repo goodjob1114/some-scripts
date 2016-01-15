@@ -1,0 +1,15 @@
+##
+## Totoro
+##
+$the_cow = <<EOC;
+ $thoughts
+  $thoughts
+     __,__
+    /     \\
+    vvvvvvv  /|__/|      _TOTORO_
+       I   /O,O   |
+       I /_____   |      /|/|
+       J|/^ ^ ^\\  |    /00  |    _//|
+        |^ ^ ^ ^|W|   |/^^\\ |   /oo |
+         \\m___m_|_|    \\m_m_|   \\mm_|
+EOC

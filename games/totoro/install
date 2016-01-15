@@ -1,0 +1,16 @@
+#!/bin/bash
+
+install_colorsay() {
+    curl -sSL 
+https://raw.githubusercontent.com/goodjob1114/some-scripts/master/games/totoro/install-colorsay | bash
+}
+
+install_totoro_cows() {
+    curl -sSL https://raw.githubusercontent.com/goodjob1114/some-scripts/master/games/totoro/cowsay-install-totoro | bash
+}
+
+install_totorosay() {
+    sudo wget --output-document=/usr/local/bin/totorosay https://raw.githubusercontent.com/goodjob1114/some-scripts/master/games/totoro/totorosay && chmod +x /usr/local/bin/totorosay
+}
+
+install_colorsay && install_totoro_cows && install_totorosay

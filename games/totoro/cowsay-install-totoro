@@ -11,7 +11,8 @@ types=( bus fat side umbrella test-all test test2 test3 test4 test5 test6 test7 
 
 for i in ${types[@]}; 
 do 
-    sudo wget --output-document=$COWSFOLDER/totoro-${i}.cow https://raw.githubusercontent.com/goodjob1114/some-scripts/master/${TOTOROS_PATH}/totoro-${i}.cow
+    totoro=$COWSFOLDER/totoro-${i}.cow
+    [ ! -s $totoro ] && sudo wget --output-document=$totoro https://raw.githubusercontent.com/goodjob1114/some-scripts/master/${TOTOROS_PATH}/totoro-${i}.cow
 done
 
 exit 0

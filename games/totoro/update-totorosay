@@ -1,0 +1,3 @@
+#!/bin/bash
+
+sudo wget --output-document=/usr/local/bin/totorosay https://raw.githubusercontent.com/goodjob1114/some-scripts/master/games/totoro/totorosay

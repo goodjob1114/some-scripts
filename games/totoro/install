@@ -12,7 +12,7 @@ install_totorosay() {
     totoro_bin=/usr/local/bin/totorosay
     update_bin=/usr/local/bin/update-totorosay
     [ ! -s ${totoro_bin} ] && sudo wget --output-document=${totoro_bin} https://raw.githubusercontent.com/goodjob1114/some-scripts/master/games/totoro/totorosay && sudo chmod +x ${totoro_bin}
-    [ ! -s ${update_bin} ] && sudo wget --output-document=${totoro_bin} https://raw.githubusercontent.com/goodjob1114/some-scripts/master/games/totoro/update-totorosay && sudo chmod +x ${update_bin}
+    [ ! -s ${update_bin} ] && sudo wget --output-document=${update_bin} https://raw.githubusercontent.com/goodjob1114/some-scripts/master/games/totoro/update-totorosay && sudo chmod +x ${update_bin}
 }
 
 install_colorsay && install_totoro_cows && install_totorosay

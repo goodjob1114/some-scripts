@@ -1,8 +1,6 @@
 #!/bin/bash
 
 gem -v > /dev/null; [ $? -ne 0 ] && echo "Need install ruby" && exit 8;
-brew -h > /dev/null; [ $? -ne 0 ] && echo "Need install homebrew via http://brew.sh/" && exit 9;
-
 lolcat -v > /dev/null; [ $? -ne 0 ] && gem install lolcat
 
 case ${OSTYPE} in
@@ -13,7 +11,9 @@ case ${OSTYPE} in
             echo "Not Ubuntu...sorry"; exit 10;
         fi
         ;;
-    darwin*) PKG="brew install";;
+    darwin*) 
+        brew -h > /dev/null; [ $? -ne 0 ] && echo "Need install homebrew via http://brew.sh/" && exit 9;
+        PKG="brew install";;
     *) echo Unknown; exit 1;;
 esac
 

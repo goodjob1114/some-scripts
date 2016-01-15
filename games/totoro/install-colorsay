@@ -14,7 +14,7 @@ case ${OSTYPE} in
     darwin*) 
         brew -h > /dev/null; [ $? -ne 0 ] && echo "Need install homebrew via http://brew.sh/" && exit 9;
         PKG="brew install"
-        brew list | grep coreutils; [ $? -ne 0 ] && ${PKG} coreutils
+        brew list | grep coreutils > /dev/null; [ $? -ne 0 ] && ${PKG} coreutils
         ;;
     *) echo Unknown; exit 1;;
 esac

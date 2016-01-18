@@ -16,7 +16,7 @@ fi
 if [ $# -lt 1 ]; then
     fortune | cowsay -f ${random_totoro} | lolcat
 else
-    echo $1 | cowsay -f ${random_totoro} | lolcat
+    echo $@ | cowsay -f ${random_totoro} | lolcat
 fi
 
 exit 0

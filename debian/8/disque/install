@@ -13,8 +13,6 @@ que_start() {
 }
 
 cd ~
-sudo apt-get install build-essential git -y
-
 git clone https://github.com/antirez/disque.git
 
 cd disque && make && que_start

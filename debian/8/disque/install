@@ -1,11 +1,15 @@
 #!/bin/bash
 
 que_start() {
-  ./src/disque-server --port 7711 &
-  ./src/disque-server --port 7712 &
-  ./src/disque-server --port 7713 &
-  ./src/disque -p 7711 cluster meet 127.0.0.1 7712
-  ./src/disque -p 7711 cluster meet 127.0.0.1 7713
+  cd ~
+  mkdir q1 && cd q1 && ~/disque/src/disque-server --port 7711 &
+  cd ~
+  mkdir q2 && cd q2 && ~/disque/src/disque-server --port 7712 &
+  cd ~
+  mkdir q3 && cd q3 && ~/disque/src/disque-server --port 7713 &
+  ~/disque/src/disque -p 7711 cluster meet 127.0.0.1 7712
+  ~/disque/src/disque -p 7711 cluster meet 127.0.0.1 7713
+  exit 0
 }
 
 cd ~
@@ -14,3 +18,5 @@ sudo apt-get install build-essential git -y
 git clone https://github.com/antirez/disque.git
 
 cd disque && make && que_start
+
+exit 0

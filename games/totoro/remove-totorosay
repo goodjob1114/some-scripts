@@ -1,0 +1,12 @@
+#!/bin/bash
+
+rm_totorosay() {
+    totoro_bin=/usr/local/bin/totorosay
+    update_bin=/usr/local/bin/update-totorosay
+    [ -s ${totoro_bin} ] && sudo rm ${totoro_bin}
+    [ -s ${update_bin} ] && sudo rm ${update_bin}
+}
+
+rm_totorosay
+
+exit 0

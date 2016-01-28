@@ -1,10 +1,30 @@
 #!/bin/bash
 
-bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+case ${OSTYPE} in
+    linux-gnu)
+        r=$(lsb_release -si)
+        if [ $r == "Ubuntu" ] || [ $r == "Debian" ]; then
+            sudo apt-get install -y binutils bison gcc make git
+        else
+            echo "Not Ubuntu..."
+        fi
+        ;;
+    darwin*)
+        echo "Hello MacOS"
+        ;;
+    *) echo Unknown;;
+esac
 
-source ~/.gvm/scripts/gvm
+compiler="go1.4"
+stable="go1.5.3"
 
-gvm install go1.4
-gvm use go1.4
-gvm install go1.5.3
-gvm use go1.5.3
+bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer); \
+source ~/.gvm/scripts/gvm && \
+gvm install $compiler && \
+gvm use $compiler && \
+gvm install $stable && \
+gvm use $stable --default
+
+echo ''
+echo 'Please restart your terminal session or to get started right away run'
+echo '`source ~/.gvm/scripts/gvm`'

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+curl -sSL https://raw.githubusercontent.com/goodjob1114/some-scripts/master/debian/8/essential.install | bash
+curl -sSL https://raw.githubusercontent.com/goodjob1114/some-scripts/master/debian/8/mongodb/install | bash
+curl -sSL https://raw.githubusercontent.com/goodjob1114/some-scripts/master/debian/8/golang/install | bash
+
+# curl -sSL https://raw.githubusercontent.com/goodjob1114/some-scripts/master/debian/8/golang/que | echo

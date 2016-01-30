@@ -1,4 +1,4 @@
 #!/bin/bash
 
 sudo apt-get update
-sudo apt-get install curl git mercurial make binutils bison gcc build-essential apache2-utils -y
+sudo apt-get install curl git mercurial make binutils bison gcc build-essential apache2-utils vim -y

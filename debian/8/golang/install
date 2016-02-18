@@ -16,7 +16,7 @@ case ${OSTYPE} in
 esac
 
 compiler="go1.4"
-stable="go1.6rc1"
+stable="go1.6"
 
 bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer); \
 source ~/.gvm/scripts/gvm && \

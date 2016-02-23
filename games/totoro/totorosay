@@ -1,22 +1,26 @@
 #!/bin/bash
 
 case ${OSTYPE} in
-   linux-gnu) SHUF=shuf;;
-   darwin*) SHUF=gshuf;;
-   *) echo "Your device is not supported yet."; exit 1;;
+    linux-gnu) SHUF=shuf;;
+    darwin*) SHUF=gshuf;;
+    *) echo "Your device is not supported yet."; exit 1;;
 esac
 
 cows=( $(cowsay -l | grep -v "Cow files in") )
 random_totoro=$(printf "%s\n" "${cows[@]}" | grep totoro | $SHUF -n 1)
 
+totorosay() {
+    cowsay -f ${random_totoro}
+}
+
 if [ ! -t 0 ]; then
-    cowsay -f ${random_totoro} | lolcat; exit 0;
+    totorosay | lolcat; exit 0;
 fi
 
 if [ $# -lt 1 ]; then
-    fortune | cowsay -f ${random_totoro} | lolcat
+    fortune | totorosay | lolcat
 else
-    echo $@ | cowsay -f ${random_totoro} | lolcat
+    echo $@ | totorosay | lolcat
 fi
 
 exit 0

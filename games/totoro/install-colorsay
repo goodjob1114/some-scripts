@@ -1,7 +1,7 @@
 #!/bin/bash
 
 gem -v > /dev/null; [ $? -ne 0 ] && echo "Need install ruby" && exit 8;
-lolcat -v > /dev/null; [ $? -ne 0 ] && gem install lolcat
+lolcat -v > /dev/null; [ $? -ne 0 ] && sudo gem install lolcat
 
 case ${OSTYPE} in
     linux-gnu) 
